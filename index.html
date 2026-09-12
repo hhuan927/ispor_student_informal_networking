@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISPOR EU Student Informal Networking — Vienna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F8FC;
+    --paper:#FFFFFF;
+    --blue-deep:#0B3D62;
+    --blue-mid:#1C6EA4;
+    --accent:#3E86BE;
+    --accent-light:#8FC1E8;
+    --ink:#0F2233;
+    --ink-soft:#4A6376;
+    --stamp-red:#C0472E;
+    --line:#D3E3F0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; color:var(--ink);}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:720px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- Header ---------- */
+  header.banner{
+    background:
+      radial-gradient(1100px 460px at 50% -180px, rgba(62,134,190,0.10), transparent 65%),
+      var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:52px 24px 40px;
+    text-align:center;
+    color:var(--ink);
+  }
+  .logo-slot{margin:0 auto 22px; display:flex; justify-content:center;}
+  .official-logo{height:64px; width:auto;}
+  .header-mark{
+    display:none;
+    width:46px; height:46px;
+    color:var(--accent);
+  }
+  .kicker{
+    font-size:14px;
+    letter-spacing:.03em;
+    color:var(--blue-mid);
+    margin-bottom:14px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+  header.banner h1{
+    font-size:clamp(32px,5.2vw,52px);
+    font-weight:700;
+    line-height:1.08;
+    max-width:14ch;
+    margin:0 auto 18px;
+    color:var(--blue-deep);
+  }
+  header.banner .sub{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:38ch;
+    margin:0 auto;
+  }
+  .facts{
+    display:flex;
+    justify-content:center;
+    gap:0;
+    flex-wrap:wrap;
+    margin-top:34px;
+    border-top:1px solid var(--line);
+    padding-top:22px;
+  }
+  .fact{
+    padding:0 26px;
+    border-right:1px solid var(--line);
+    text-align:left;
+  }
+  .fact:last-child{border-right:none;}
+  .fact .label{font-size:12px; color:var(--blue-mid); font-weight:600;}
+  .fact .value{font-family:'Fraunces', serif; font-size:18px; margin-top:4px; color:var(--ink);}
+
+  /* ---------- Body ---------- */
+  main{padding:56px 0 20px;}
+  section{margin-bottom:56px;}
+  section > h2{
+    font-size:26px;
+    font-weight:600;
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  section > h2 svg{width:22px; height:22px; color:var(--accent); flex:0 0 auto;}
+  p{color:var(--ink-soft); font-size:16px; margin:0 0 12px;}
+
+  .intro-block{
+    display:flex;
+    gap:28px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .intro-text{flex:1 1 360px;}
+  .bingo-stamp{
+    flex:0 0 auto;
+    width:128px; height:128px;
+    border:2.5px dashed var(--stamp-red);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    color:var(--stamp-red);
+    transform:rotate(-8deg);
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.04em;
+    line-height:1.3;
+    margin:6px auto;
+  }
+
+  /* Ticket-style details card */
+  .ticket{
+    position:relative;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:26px 28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px 32px;
+  }
+  .ticket::before,.ticket::after{
+    content:"";
+    position:absolute;
+    width:22px; height:22px;
+    background:var(--cream);
+    border-radius:50%;
+    top:50%; transform:translateY(-50%);
+  }
+  .ticket::before{left:-11px;}
+  .ticket::after{right:-11px;}
+  .ticket-item{flex:1 1 160px; display:flex; gap:12px;}
+  .ticket-item svg{flex:0 0 auto; width:22px; height:22px; color:var(--accent); margin-top:2px;}
+  .ticket-item .t-label{font-size:12px; color:var(--accent); font-weight:600; margin-bottom:4px;}
+  .ticket-item .t-value{font-size:16px; font-weight:600;}
+  .ticket-item .t-value span{display:block; font-weight:400; color:var(--ink-soft); font-size:14px; margin-top:2px;}
+
+  .notice{
+    border-left:3px solid var(--stamp-red);
+    background:#FBEDE9;
+    padding:14px 18px;
+    font-size:14.5px;
+    color:#7A2E1C;
+    margin-top:18px;
+    border-radius:2px;
+  }
+
+  /* Getting there */
+  .steps{list-style:none; margin:0 0 20px; padding:0; counter-reset:step;}
+  .steps li{
+    counter-increment:step;
+    position:relative;
+    padding-left:40px;
+    margin-bottom:16px;
+    font-size:15.5px;
+    color:var(--ink-soft);
+  }
+  .steps li::before{
+    content:counter(step);
+    position:absolute;
+    left:0; top:-1px;
+    width:26px; height:26px;
+    background:var(--blue-mid);
+    color:var(--paper);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:13px;
+  }
+  .steps li b{color:var(--ink);}
+
+  .map-frame{
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    margin-top:6px;
+  }
+  .map-frame iframe{width:100%; height:280px; border:0; display:block;}
+
+  .btn{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:3px;
+    font-weight:600;
+    font-size:14.5px;
+    text-decoration:none;
+    border:1.5px solid var(--blue-deep);
+    cursor:pointer;
+    transition:transform .12s ease;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn-primary{background:var(--blue-deep); color:var(--paper);}
+  .btn-primary:hover{background:var(--blue-mid);}
+  .btn-outline{background:transparent; color:var(--blue-deep);}
+  .btn-outline:hover{background:rgba(11,61,98,0.06);}
+  .btn-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;}
+
+  /* Slack */
+  .slack-box{
+    background:var(--blue-deep);
+    color:var(--paper);
+    border-radius:4px;
+    padding:26px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .slack-box p{color:#BFDBF0; margin:0; max-width:40ch;}
+  .slack-box h3{font-size:19px; margin-bottom:6px; color:var(--paper);}
+  .btn-brass{background:var(--stamp-red); border-color:var(--stamp-red); color:var(--paper);}
+  .btn-brass:hover{background:#A33A24; border-color:#A33A24;}
+
+  /* Form */
+  form{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:30px 30px 26px;
+  }
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .field input, .field select{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    background:#fff;
+    font-family:'Work Sans', sans-serif;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .field input:focus, .field select:focus{
+    outline:2px solid var(--accent);
+    outline-offset:1px;
+    border-color:var(--accent);
+  }
+  .row-2{display:flex; gap:16px; flex-wrap:wrap;}
+  .row-2 .field{flex:1 1 220px;}
+
+  .submit-btn{
+    width:100%;
+    padding:14px;
+    background:var(--stamp-red);
+    border:none;
+    color:var(--paper);
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:17px;
+    border-radius:3px;
+    cursor:pointer;
+    margin-top:6px;
+  }
+  .submit-btn:hover{background:#833023;}
+
+  .confirm-panel{
+    display:none;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:34px 30px;
+    text-align:center;
+  }
+  .confirm-panel.show{display:block;}
+  .confirm-panel .check{
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--blue-mid);
+    color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 16px;
+    font-size:24px;
+  }
+  .confirm-panel h3{font-size:22px; margin-bottom:8px;}
+  .confirm-summary{
+    text-align:left;
+    max-width:360px;
+    margin:18px auto 0;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+    padding-top:16px;
+  }
+  .confirm-summary div{margin-bottom:6px;}
+  .confirm-summary b{color:var(--ink);}
+
+  footer{
+    text-align:center;
+    padding:30px 24px 46px;
+    color:var(--ink-soft);
+    font-size:13px;
+  }
+  footer a{color:var(--blue-mid); font-weight:600; text-decoration:none;}
+
+  @media (max-width:520px){
+    .fact{border-right:none; padding:6px 0; text-align:center;}
+    .facts{flex-direction:column; gap:4px;}
+    .slack-box{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <!--
+    LOGO: ispor-logo.png (the official ISPOR Student Network logo) must sit
+    in the same folder as this HTML file. If it's ever missing, the img
+    below fails to load and falls back to an original placeholder mark
+    instead of a broken image.
+  -->
+  <div class="logo-slot">
+    <img class="official-logo" src="ispor-logo.png" alt="ISPOR Student Network"
+         onerror="this.style.display='none'; document.querySelector('.header-mark').style.display='block';">
+    <svg class="header-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M24 2 L44 13 V35 L24 46 L4 35 V13 Z" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M12 30 L19 20 L25 26 L36 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="12" r="2.4" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="kicker">ISPOR Global Student Network</div>
+  <h1>Informal Networking Evening</h1>
+  <p class="sub">Friends, refreshments and a rousing, high-stakes game of BINGO.</p>
+  <div class="facts">
+    <div class="fact"><div class="label">DATE</div><div class="value">Sun, Nov 8, 2026</div></div>
+    <div class="fact"><div class="label">TIME</div><div class="value">18:00 – 20:00</div></div>
+    <div class="fact"><div class="label">PLACE</div><div class="value">The Golden Harp Students Pub</div></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <div class="intro-block">
+      <div class="intro-text">
+        <h2><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="8.7" cy="10.2" r="1.1" fill="currentColor"/><circle cx="15.3" cy="10.2" r="1.1" fill="currentColor"/><path d="M8 14c1 2 2.5 3 4 3s3-1 4-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Join us</h2>
+        <p>Join the ISPOR Student Network for an informal evening of friendship, refreshments, and a rousing, high-stakes game of BINGO! Watch the website for details.</p>
+        <p>No agenda, no name badges required &mdash; just a chance to meet fellow students and early-career researchers from across the ISPOR EU community before the week gets busy.</p>
+      </div>
+      <div class="bingo-stamp">BINGO<br>NIGHT</div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-item">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M3 9.5H21" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 3V6.5M16.5 3V6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8.2" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="15.8" cy="14" r="1" fill="currentColor"/></svg>
+        <div>
+          <div class="t-label">WHEN</div>
+          <div class="t-value">Sunday, Nov 8th 2026<span>18:00 – 20:00</span></div>
+        </div>
+      </div>
+      <div class="ticket-item">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21S5 14.5 5 9.8C5 6 8.1 3 12 3s7 3 7 6.8C19 14.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.6" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div>
+          <div class="t-label">WHERE</div>
+          <div class="t-value">The Golden Harp Students Pub<span>Johannesgasse 12, 1010 Wien</span></div>
+        </div>
+      </div>
+      <div class="ticket-item">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="6.5" width="18" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M3 10.5H21" stroke="currentColor" stroke-width="1.6"/><circle cx="16.5" cy="14.3" r="1.3" fill="currentColor"/></svg>
+        <div>
+          <div class="t-label">COST</div>
+          <div class="t-value">Self-pay<span>Drinks &amp; snacks are on you</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="notice">This is a self-pay event &mdash; ISPOR does not cover food or drinks. Come with a bit of cash or a card for the bar.</div>
+  </section>
+
+  <section>
+    <h2><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="5" y="3" width="14" height="15" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M5 13H19" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="15.7" r="1" fill="currentColor"/><circle cx="15.5" cy="15.7" r="1" fill="currentColor"/><path d="M9 21L10.5 18.5M15 21L13.5 18.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Getting there from Austria Center Vienna</h2>
+    <ol class="steps">
+      <li>Exit the Austria Center Vienna and head to the <b>Kaisermühlen&ndash;VIC</b> U1 station, right next to the venue.</li>
+      <li>Take the <b>U1</b> in the direction of <b>Oberlaa</b>. Ride about 7 minutes (6 stops) to <b>Stephansplatz</b>.</li>
+      <li>Exit toward <b>Kärntner Straße</b> and walk south for about 5&ndash;7 minutes. Johannesgasse 12 is just off Kärntner Straße, next to the Bettelstudent pub.</li>
+    </ol>
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps?q=Johannesgasse+12,+1010+Wien,+Austria&output=embed" loading="lazy" allowfullscreen></iframe>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Austria+Center+Vienna&destination=Johannesgasse+12,+1010+Wien&travelmode=transit">Get directions from ACV</a>
+      <a class="btn btn-outline" id="ics-link" href="#" download="ispor-networking-vienna.ics">Add to calendar</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="slack-box">
+      <div>
+        <h3>Stay in the loop</h3>
+        <p>Questions, updates, and who's-in-who's-out chatter happen in the Slack channel.</p>
+      </div>
+      <a class="btn btn-brass" target="_blank" rel="noopener" href="https://app.slack.com/client/T0BQGF8JSPN/C0BQEP17JPK">Join Slack channel</a>
+    </div>
+  </section>
+
+  <section id="register">
+    <h2><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 9.5H16M8 12.5H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Save your seat</h2>
+    <p>Let us know you're coming so we can plan for numbers (and enough BINGO cards).</p>
+
+    <!--
+      BACKEND: this form posts to Formspree (https://formspree.io).
+      1) Create a free account at formspree.io and make a new form.
+      2) Copy the form ID it gives you (looks like "xzzjqveo") and
+         replace YOUR_FORM_ID below and in the <script> fetch call.
+      3) Submissions will land in your email + the Formspree dashboard,
+         with an option to export to CSV/Google Sheets.
+    -->
+    <form id="reg-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="school">School / Institution</label>
+          <input type="text" id="school" name="school" required>
+        </div>
+        <div class="field">
+          <label for="position">Position</label>
+          <select id="position" name="position" required>
+            <option value="" disabled selected>Select one</option>
+            <option>PhD Student</option>
+            <option>PharmD</option>
+            <option>Post-Doc</option>
+            <option>MSc / Master's Student</option>
+            <option>Early-Career Researcher</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <button type="submit" class="submit-btn">Register for the evening</button>
+    </form>
+
+    <div class="confirm-panel" id="confirm-panel">
+      <div class="check">&#10003;</div>
+      <h3>You're on the list</h3>
+      <p>See you Sunday, Nov 8th at The Golden Harp. Don't forget to join the Slack channel for last-minute updates.</p>
+      <div class="confirm-summary" id="confirm-summary"></div>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn-brass" target="_blank" rel="noopener" href="https://app.slack.com/client/T0BQGF8JSPN/C0BQEP17JPK">Join Slack channel</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  ISPOR Global Student Network &mdash; EU Student Chapter &middot; Questions? Reach out via <a href="https://app.slack.com/client/T0BQGF8JSPN/C0BQEP17JPK" target="_blank" rel="noopener">Slack</a>
+</footer>
+
+<script>
+  // Build a downloadable .ics calendar file
+  (function(){
+    const ics = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//ISPOR Student Network//Vienna Networking//EN",
+      "BEGIN:VEVENT",
+      "UID:ispor-vienna-networking-2026@isporstudent",
+      "DTSTAMP:20260101T000000Z",
+      "DTSTART:20261108T170000Z",
+      "DTEND:20261108T190000Z",
+      "SUMMARY:ISPOR EU Student Informal Networking",
+      "DESCRIPTION:Informal evening of friendship, refreshments, and BINGO. Self-pay event.",
+      "LOCATION:The Golden Harp Students Pub, Johannesgasse 12, 1010 Wien",
+      "END:VEVENT",
+      "END:VCALENDAR"
+    ].join("\r\n");
+    const blob = new Blob([ics], {type: "text/calendar"});
+    document.getElementById("ics-link").href = URL.createObjectURL(blob);
+  })();
+
+  // Form handling — submits to Formspree (see comment above the <form> tag)
+  const regForm = document.getElementById("reg-form");
+  const submitBtn = regForm.querySelector(".submit-btn");
+
+  regForm.addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const school = document.getElementById("school").value.trim();
+    const position = document.getElementById("position").value;
+    const email = document.getElementById("email").value.trim();
+
+    const showConfirmation = function(){
+      const summary = document.getElementById("confirm-summary");
+      summary.innerHTML =
+        "<div><b>Name:</b> " + name + "</div>" +
+        "<div><b>School:</b> " + school + "</div>" +
+        "<div><b>Position:</b> " + position + "</div>" +
+        "<div><b>Email:</b> " + email + "</div>";
+      regForm.style.display = "none";
+      document.getElementById("confirm-panel").classList.add("show");
+    };
+
+    // If the Formspree endpoint hasn't been configured yet, skip the network
+    // call so the page still demos end-to-end during setup/preview.
+    if (regForm.action.includes("YOUR_FORM_ID")) {
+      showConfirmation();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+
+    try {
+      const res = await fetch(regForm.action, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(regForm)
+      });
+      if (res.ok) {
+        showConfirmation();
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Register for the evening";
+        alert("Something went wrong submitting your registration. Please try again or message us on Slack.");
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Register for the evening";
+      alert("Network error — please check your connection and try again.");
+    }
+  });
+</script>
+
+</body>
+</html>
